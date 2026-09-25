@@ -1,0 +1,11 @@
+.local/
+.venv/
+dist/
+__pycache__/
+*.py[cod]
+infra/main.json
+.env
+.env.*
+*.private.*
+*-private.zip
+BLOG.md

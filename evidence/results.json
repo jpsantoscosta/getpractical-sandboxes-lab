@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "provenance": {
+    "kind": "historical_curated",
+    "note": "Recorded on 25 September 2026 in West Europe. These are historical curated results, not a fresh run of the revised v1.0.0 release. Original check verdicts and measurements are retained."
+  },
+  "source_report_sha256": "5db254479f517a2bed24e1161b0a2e2d4884e1f9b0e9ee4e94911b6d68b1a01c",
+  "started_utc": "2026-09-25T16:14:05.777149+00:00",
+  "finished_utc": "2026-09-25T16:16:13.057731+00:00",
+  "region": "westeurope",
+  "sdk_version": "0.1.0b4",
+  "image": "python-3.12",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "fresh_sandboxes_do_not_share_local_files",
+      "status": "passed"
+    },
+    {
+      "name": "fresh_boot_identifiers_differ",
+      "status": "passed"
+    },
+    {
+      "name": "fresh_deny_full_policy_readback",
+      "status": "passed"
+    },
+    {
+      "name": "fresh_allowed_https_request_succeeds",
+      "status": "passed"
+    },
+    {
+      "name": "fresh_blocked_host_has_deny_audit",
+      "status": "passed"
+    },
+    {
+      "name": "fresh_blocked_path_has_deny_audit",
+      "status": "passed"
+    },
+    {
+      "name": "nonzero_command_exit_is_preserved",
+      "status": "passed"
+    },
+    {
+      "name": "guest_timeout_kills_the_test_command",
+      "status": "passed"
+    },
+    {
+      "name": "sandbox_works_after_command_timeout",
+      "status": "passed"
+    },
+    {
+      "name": "memory_stop_reaches_stopped_state",
+      "status": "passed"
+    },
+    {
+      "name": "memory_resume_preserves_process_state",
+      "status": "passed"
+    },
+    {
+      "name": "snapshot_clones_checkpoint_not_later_disk_writes",
+      "status": "passed"
+    },
+    {
+      "name": "snapshot_clone_restores_process_memory",
+      "status": "passed"
+    },
+    {
+      "name": "clone_after_explicit_policy_deny_full_policy_readback",
+      "status": "passed"
+    },
+    {
+      "name": "clone_after_explicit_policy_allowed_https_request_succeeds",
+      "status": "passed"
+    },
+    {
+      "name": "clone_after_explicit_policy_blocked_host_has_deny_audit",
+      "status": "passed"
+    },
+    {
+      "name": "clone_after_explicit_policy_blocked_path_has_deny_audit",
+      "status": "passed"
+    },
+    {
+      "name": "disk_resume_preserves_files_not_listener",
+      "status": "passed"
+    },
+    {
+      "name": "disk_resume_requires_new_process",
+      "status": "passed"
+    },
+    {
+      "name": "data_disk_rejects_second_concurrent_mount",
+      "status": "passed"
+    },
+    {
+      "name": "data_disk_survives_sandbox_deletion",
+      "status": "passed"
+    }
+  ],
+  "guest": {
+    "python": "3.12.14",
+    "kernel": "6.12.8+",
+    "machine": "x86_64",
+    "uid": 0,
+    "root_disk_bytes": 20957536256
+  },
+  "assigned_resources": {
+    "cpu": "1000m",
+    "memory": "2048Mi",
+    "disk": "20480Mi"
+  },
+  "network": {
+    "fresh": {
+      "allowed_http_status": 200,
+      "blocked_host_http_statuses": [
+        403,
+        403
+      ],
+      "blocked_path_http_statuses": [
+        403,
+        403,
+        403,
+        403,
+        403,
+        403,
+        403
+      ],
+      "allow_audit_observed": false
+    },
+    "clone_after_explicit_policy": {
+      "allowed_http_status": 200,
+      "blocked_host_http_statuses": [
+        403,
+        403,
+        403,
+        403,
+        403
+      ],
+      "blocked_path_http_statuses": [
+        403,
+        403,
+        403,
+        403,
+        403,
+        403,
+        403,
+        403
+      ],
+      "allow_audit_observed": true
+    }
+  },
+  "memory_resume": {
+    "process_nonce_preserved": true,
+    "pid_before": 105,
+    "pid_after": 105,
+    "counter_before": 1,
+    "counter_after": 2,
+    "boot_id_preserved": true
+  },
+  "disk_resume": {
+    "new_process_nonce": true,
+    "new_boot_id": true
+  },
+  "second_data_disk_mount_http_status": 409,
+  "measurements": [
+    {
+      "operation": "create",
+      "purpose": "core",
+      "name": "state-and-network-demo",
+      "create_to_running_seconds": 0.9187533999793231,
+      "create_to_first_exec_seconds": 1.0030521999578923,
+      "first_exec_roundtrip_seconds": 0.08429879997856915
+    },
+    {
+      "operation": "create",
+      "purpose": "isolation-peer",
+      "name": "filesystem-isolation-check",
+      "create_to_running_seconds": 0.7681601999793202,
+      "create_to_first_exec_seconds": 0.8374519999488257,
+      "first_exec_roundtrip_seconds": 0.06929179996950552
+    },
+    {
+      "operation": "memory_stop",
+      "seconds": 2.452277200005483
+    },
+    {
+      "operation": "memory_resume",
+      "seconds": 0.4596851999522187
+    },
+    {
+      "operation": "capture_snapshot",
+      "seconds": 1.1561015999759547
+    },
+    {
+      "operation": "create",
+      "purpose": "snapshot-clone",
+      "name": "restored-memory-demo",
+      "create_to_running_seconds": 0.4061099999817088,
+      "create_to_first_exec_seconds": 0.4807852999656461,
+      "first_exec_roundtrip_seconds": 0.0746752999839373
+    },
+    {
+      "operation": "disk_stop",
+      "seconds": 1.4657366999890655
+    },
+    {
+      "operation": "disk_resume",
+      "seconds": 0.7328445000457577
+    },
+    {
+      "operation": "create",
+      "purpose": "volume-writer",
+      "name": "storage-writer",
+      "create_to_running_seconds": 0.7968813999905251,
+      "create_to_first_exec_seconds": 0.8857872000080533,
+      "first_exec_roundtrip_seconds": 0.08890580001752824
+    },
+    {
+      "operation": "create",
+      "purpose": "volume-contender",
+      "name": "second-mount-check",
+      "create_to_running_seconds": 0.7755184999550693,
+      "create_to_first_exec_seconds": 0.8530027999659069,
+      "first_exec_roundtrip_seconds": 0.07748430001083761
+    },
+    {
+      "operation": "create",
+      "purpose": "volume-reader",
+      "name": "storage-reader",
+      "create_to_running_seconds": 0.8935004000086337,
+      "create_to_first_exec_seconds": 0.969804699998349,
+      "first_exec_roundtrip_seconds": 0.07630429998971522
+    },
+    {
+      "operation": "create",
+      "purpose": "benchmark-01",
+      "name": "startup-check-01",
+      "create_to_running_seconds": 0.7892835999955423,
+      "create_to_first_exec_seconds": 0.8786852000048384,
+      "first_exec_roundtrip_seconds": 0.08940160000929609
+    },
+    {
+      "operation": "create",
+      "purpose": "benchmark-02",
+      "name": "startup-check-02",
+      "create_to_running_seconds": 0.7539013000205159,
+      "create_to_first_exec_seconds": 0.8311793000320904,
+      "first_exec_roundtrip_seconds": 0.07727800001157448
+    },
+    {
+      "operation": "create",
+      "purpose": "benchmark-03",
+      "name": "startup-check-03",
+      "create_to_running_seconds": 0.76064359996235,
+      "create_to_first_exec_seconds": 0.832364099973347,
+      "first_exec_roundtrip_seconds": 0.07172050001099706
+    },
+    {
+      "operation": "create",
+      "purpose": "benchmark-04",
+      "name": "startup-check-04",
+      "create_to_running_seconds": 0.7569391000433825,
+      "create_to_first_exec_seconds": 0.8218564999988303,
+      "first_exec_roundtrip_seconds": 0.06491739995544776
+    },
+    {
+      "operation": "create",
+      "purpose": "benchmark-05",
+      "name": "startup-check-05",
+      "create_to_running_seconds": 0.7749752000090666,
+      "create_to_first_exec_seconds": 0.8387321999762207,
+      "first_exec_roundtrip_seconds": 0.06375699996715412
+    }
+  ],
+  "benchmark": {
+    "samples": 5,
+    "concurrency": 1,
+    "polling_interval_seconds": 2,
+    "percentile_method": "nearest rank; for five samples p95 is the maximum",
+    "create_to_running_seconds": {
+      "p50": 0.76064359996235,
+      "p95": 0.7892835999955423
+    },
+    "create_to_first_exec_seconds": {
+      "p50": 0.832364099973347,
+      "p95": 0.8786852000048384
+    }
+  },
+  "cleanup_errors": []
+}
